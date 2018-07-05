@@ -23,7 +23,7 @@ const addInputA = {
       state.secondParam = second
     },
     calculateTotal(state) {
-      state.total = state.firstParam + state.secondParam
+      state.total = Number(state.firstParam) + Number(state.secondParam)
     }
   }
 }
@@ -48,7 +48,7 @@ const addInputB = {
       state.secondParam = second
     },
     calculateTotal(state) {
-      state.total = state.firstParam + state.secondParam
+      state.total = Number(state.firstParam) + Number(state.secondParam)
     }
   }
 }

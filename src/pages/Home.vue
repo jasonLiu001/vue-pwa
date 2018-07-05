@@ -47,13 +47,13 @@
         return state.a.total
       },
       addInputBFirst(state) {
-        return state.a.firstParam
+        return state.b.firstParam
       },
       addInputBSecond(state) {
-        return state.a.secondParam
+        return state.b.secondParam
       },
       addInputBTotal(state) {
-        return state.a.total
+        return state.b.total
       }
     }),
     methods: {

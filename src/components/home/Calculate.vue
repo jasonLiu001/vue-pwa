@@ -1,9 +1,9 @@
 <template>
   <div v-if="isShow">
-    <input class="inputValue" v-on:input="firstParamChange" v-model.number="firstParam" type="number"
+    <input class="inputValue" v-on:input="firstParamChange" v-bind:value="firstParam" type="number"
            placeholder="value1"/>
     <span>+</span>
-    <input class="inputValue" v-on:input="secondParamChange" v-model.number="secondParam" type="number"
+    <input class="inputValue" v-on:input="secondParamChange" v-bind:value="secondParam" type="number"
            placeholder="value2"/>
     <input type="button" v-on:click="doCalculate" value="计算"/>
   </div>
@@ -18,18 +18,50 @@
     computed: {
       firstParam: {
         get: function () {
-          return this.$store.state.a.firstParam
+          let value
+          switch (this.name) {
+            case "addInput1":
+              value = this.$store.state.a.firstParam
+              break
+            case "addInput2":
+              value = this.$store.state.b.firstParam
+              break
+          }
+          return value
         },
         set: function (newValue) {
-          this.$store.commit('a/setFirstParam', newValue)
+          switch (this.name) {
+            case "addInput1":
+              this.$store.commit('a/setFirstParam', newValue)
+              break
+            case "addInput2":
+              this.$store.commit('b/setFirstParam', newValue)
+              break
+          }
         }
       },
       secondParam: {
         get: function () {
-          return this.$store.state.a.firstParam
+          let value
+          switch (this.name) {
+            case "addInput1":
+              value = this.$store.state.a.secondParam
+              break
+            case "addInput2":
+              value = this.$store.state.b.secondParam
+              break
+          }
+          return value
         },
         set: function (newValue) {
-          this.$store.commit('a/setFirstParam', newValue)
+          switch (this.name) {
+            case "addInput1":
+              this.$store.commit('a/setSecondParam', newValue)
+              break
+            case "addInput2":
+              this.$store.commit('b/setSecondParam', newValue)
+              break
+          }
         }
       }
     },
@@ -60,7 +92,6 @@
             this.$store.commit('b/setFirstParam', evt.target.value)
             break
         }
-        // this.$emit('showTotal', {first: evt.target.value, second: this.secondParam, total: '?'})
       },
       secondParamChange(evt) {
         switch (this.name) {
@@ -68,10 +99,9 @@
             this.$store.commit('a/setSecondParam', evt.target.value)
             break
           case "addInput2":
-            this.$store.commit('a/setSecondParam', evt.target.value)
+            this.$store.commit('b/setSecondParam', evt.target.value)
             break
         }
-        // this.$emit('showTotal', {first: this.firstParam, second: evt.target.value, total: '?'})
       }
     }
   }
