@@ -5,18 +5,16 @@
       <div>
         <span>?</span>+<span>?</span>=<span>?</span>
       </div>
-      <input class="btnInput" type="button" v-on:click="showInputGroup" value="输入"></input>
-      <calculate-component v-on:showCalculate="showCalculate"
-                           v-bind:isShowInputGroup="isShowInputGroup"></calculate-component>
+      <input class="btnInput" type="button" v-on:click="showInputGroup('addInput1')" value="输入"></input>
+      <calculate-component ref="addInput1"></calculate-component>
     </div>
 
     <div class="row">
       <div>
         <span>?</span>+<span>?</span>=<span>?</span>
       </div>
-      <input class="btnInput" v-on:click="showInputGroup" type="button" value="输入"></input>
-      <calculate-component v-on:showCalculate="showCalculate"
-                           v-bind:isShowInputGroup="isShowInputGroup"></calculate-component>
+      <input class="btnInput" v-on:click="showInputGroup('addInput2')" type="button" value="输入"></input>
+      <calculate-component ref="addInput2"></calculate-component>
     </div>
 
   </div>
@@ -36,8 +34,16 @@
       }
     },
     methods: {
-      showInputGroup(evt) {
+      showInputGroup(name) {
         this.isShowInputGroup = true
+        switch (name) {
+          case 'addInput1':
+            this.$refs.addInput1.isShow = true
+            break
+          case 'addInput2':
+            this.$refs.addInput2.isShow = true
+            break
+        }
       },
       // 监听子组件的`showCalculate`事件
       showCalculate(isShowCalculate) {

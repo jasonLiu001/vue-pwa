@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isShowInputGroup">
+  <div v-if="isShow">
     <input class="inputValue" type="text" placeholder="value1"/>
     <span>+</span>
     <input class="inputValue" type="text" placeholder="value2"/>
@@ -10,13 +10,19 @@
 <script>
   export default {
     name: "calculateComponent",
-    props: {
-      isShowInputGroup: Boolean
+    // props: {
+    //   isShowInputGroup: false
+    // },
+    data: function () {
+      return {
+        isShow: false
+      }
     },
     methods: {
       doCalculate(evt) {
         // 计算完成后，隐藏自身
-        this.$emit('showCalculate', false)
+        // this.$emit('showCalculate', false)
+        this.isShow = false
       }
     }
   }
