@@ -1,15 +1,24 @@
 <template>
-  <div>
+  <div v-if="isShowInputGroup">
     <input class="inputValue" type="text" placeholder="value1"/>
     <span>+</span>
     <input class="inputValue" type="text" placeholder="value2"/>
-    <input type="button" value="计算"/>
+    <input type="button" v-on:click="doCalculate" value="计算"/>
   </div>
 </template>
 
 <script>
   export default {
-    name: "calculateComponent"
+    name: "calculateComponent",
+    props: {
+      isShowInputGroup: Boolean
+    },
+    methods: {
+      doCalculate(evt) {
+        // 计算完成后，隐藏自身
+        this.$emit('showCalculate', false)
+      }
+    }
   }
 </script>
 

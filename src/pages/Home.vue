@@ -5,16 +5,18 @@
       <div>
         <span>?</span>+<span>?</span>=<span>?</span>
       </div>
-      <input class="btnInput" type="button" value="输入"></input>
-      <calculate-component></calculate-component>
+      <input class="btnInput" type="button" v-on:click="showInputGroup" value="输入"></input>
+      <calculate-component v-on:showCalculate="showCalculate"
+                           v-bind:isShowInputGroup="isShowInputGroup"></calculate-component>
     </div>
 
     <div class="row">
       <div>
-        <span>?</span>*<span>?</span>=<span>?</span>
+        <span>?</span>+<span>?</span>=<span>?</span>
       </div>
-      <input class="btnInput" type="button" value="输入"></input>
-      <calculate-component></calculate-component>
+      <input class="btnInput" v-on:click="showInputGroup" type="button" value="输入"></input>
+      <calculate-component v-on:showCalculate="showCalculate"
+                           v-bind:isShowInputGroup="isShowInputGroup"></calculate-component>
     </div>
 
   </div>
@@ -27,6 +29,20 @@
     name: "homePage",
     components: {
       CalculateComponent
+    },
+    data: function () {
+      return {
+        isShowInputGroup: false
+      }
+    },
+    methods: {
+      showInputGroup(evt) {
+        this.isShowInputGroup = true
+      },
+      // 监听子组件的`showCalculate`事件
+      showCalculate(isShowCalculate) {
+        this.isShowInputGroup = isShowCalculate
+      }
     }
   }
 </script>
