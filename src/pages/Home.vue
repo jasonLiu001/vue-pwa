@@ -6,20 +6,28 @@
         <span>?</span>+<span>?</span>=<span>?</span>
       </div>
       <input class="btnInput" type="button" value="输入"></input>
+      <calculate-component></calculate-component>
     </div>
+
     <div class="row">
       <div>
         <span>?</span>*<span>?</span>=<span>?</span>
       </div>
       <input class="btnInput" type="button" value="输入"></input>
+      <calculate-component></calculate-component>
     </div>
 
   </div>
 </template>
 
 <script>
+  import CalculateComponent from '../components/home/Calculate'
+
   export default {
-    name: "homePage"
+    name: "homePage",
+    components: {
+      CalculateComponent
+    }
   }
 </script>
 
