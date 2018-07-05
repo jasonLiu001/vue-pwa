@@ -1,34 +1,13 @@
 import Vue from 'vue'
 import App from './App'
-import Router from 'vue-router'
-import HomePage from './pages/Home'
-import AboutPage from './pages/About'
-
-// enable router support
-Vue.use(Router)
-
-// define some routes
-const routes = [
-  {
-    path: '/',
-    component: HomePage
-  }, {
-    path: '/About',
-    component: AboutPage
-  }
-]
-
-// defined a router
-const router = new Router({
-  routes: routes
-})
+import router from './router/index'
+import store from './vuex/store'
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App></App>',
-  components: {
-    App, HomeComponent: HomePage, AboutComponent: AboutPage
-  }
+  components: {App}
 })
