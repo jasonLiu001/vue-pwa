@@ -10,9 +10,6 @@
 <script>
   export default {
     name: "calculateComponent",
-    // props: {
-    //   isShowInputGroup: false
-    // },
     data: function () {
       return {
         isShow: false
@@ -21,7 +18,6 @@
     methods: {
       doCalculate(evt) {
         // 计算完成后，隐藏自身
-        // this.$emit('showCalculate', false)
         this.isShow = false
       }
     }

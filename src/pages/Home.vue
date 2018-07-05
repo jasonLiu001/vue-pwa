@@ -28,14 +28,8 @@
     components: {
       CalculateComponent
     },
-    data: function () {
-      return {
-        isShowInputGroup: false
-      }
-    },
     methods: {
       showInputGroup(name) {
-        this.isShowInputGroup = true
         switch (name) {
           case 'addInput1':
             this.$refs.addInput1.isShow = true
@@ -44,10 +38,6 @@
             this.$refs.addInput2.isShow = true
             break
         }
-      },
-      // 监听子组件的`showCalculate`事件
-      showCalculate(isShowCalculate) {
-        this.isShowInputGroup = isShowCalculate
       }
     }
   }
