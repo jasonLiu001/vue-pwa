@@ -3,21 +3,25 @@
     <div class="row">
       <div class="inner_row">
         <div>
-          <span>{{addInput1.first}}</span>+<span>{{addInput1.second}}</span>=<span>{{addInput1.total}}</span>
+          <span>{{addInputAFirst}}</span>+<span>{{addInputASecond}}</span>=<span>{{addInputATotal}}</span>
         </div>
         <input class="btnInput" type="button" v-on:click="showInputGroup('addInput1')" value="输入"></input>
       </div>
-      <calculate-component v-on:showTotal="addInput1Event" ref="addInput1"></calculate-component>
+      <calculate-component name="addInput1" ref="addInput1"></calculate-component>
     </div>
 
     <div class="row">
       <div class="inner_row">
         <div>
-          <span>{{addInput2.first}}</span>+<span>{{addInput2.second}}</span>=<span>{{addInput2.total}}</span>
+          <span>{{addInputBFirst}}</span>+<span>{{addInputBSecond}}</span>=<span>{{addInputBTotal}}</span>
         </div>
         <input class="btnInput" v-on:click="showInputGroup('addInput2')" type="button" value="输入"></input>
       </div>
-      <calculate-component v-on:showTotal="addInput2Event" ref="addInput2"></calculate-component>
+      <calculate-component name="addInput2" ref="addInput2"></calculate-component>
+    </div>
+
+    <div class="row">
+      <a href="javascript:void(0);" v-on:click="redirectToAbout">跳转到关于页面</a>
     </div>
 
   </div>
@@ -25,26 +29,33 @@
 
 <script>
   import CalculateComponent from '../components/home/Calculate'
+  import {mapState} from 'vuex'
 
   export default {
     name: "homePage",
     components: {
       CalculateComponent
     },
-    data: function () {
-      return {
-        addInput1: {
-          first: '?',
-          second: '?',
-          total: '?'
-        },
-        addInput2: {
-          first: '?',
-          second: '?',
-          total: '?'
-        }
+    computed: mapState({
+      addInputAFirst(state) {
+        return state.a.firstParam
+      },
+      addInputASecond(state) {
+        return state.a.secondParam
+      },
+      addInputATotal(state) {
+        return state.a.total
+      },
+      addInputBFirst(state) {
+        return state.a.firstParam
+      },
+      addInputBSecond(state) {
+        return state.a.secondParam
+      },
+      addInputBTotal(state) {
+        return state.a.total
       }
-    },
+    }),
     methods: {
       showInputGroup(name) {
         switch (name) {
@@ -56,11 +67,8 @@
             break
         }
       },
-      addInput1Event(result) {
-        this.addInput1 = result
-      },
-      addInput2Event(result) {
-        this.addInput2 = result
+      redirectToAbout() {
+        this.$router.push('About')
       }
     }
   }
