@@ -1,5 +1,4 @@
 <template>
-  <p>我是页底</p>
 </template>
 
 <script>
