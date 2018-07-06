@@ -4,11 +4,10 @@ import router from './router/index'
 import store from './vuex/store'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 // 支持的字体预设 https://github.com/vuetifyjs/vuetify/blob/dev/src/components/Vuetify/mixins/icons.js
-Vue.use(Vuetify, {
-  iconfont: 'mdi' // 使用materialdesignicons.com字体图标支持，其他字体:如Font-Awesome的值需要同时修改 'md' || 'mdi' || 'fa' || 'fa4'
-})
+Vue.use(Vuetify)
 
 /* eslint-disable no-new */
 new Vue({

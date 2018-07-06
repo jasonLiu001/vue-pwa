@@ -60,12 +60,12 @@
       </v-container>
     </v-content>
 
-    <v-footer class="secondary" app>
+    <v-footer class="accent" app>
       <v-layout wrap align-center>
         <v-flex xs12>
           <div class="white--text ml-3">
             Made with
-            <v-icon class="red--text">favorite</v-icon>
+            <v-icon class="pink--text text--darken-4">info</v-icon>
             by <a class="white--text" href="https://vuetifyjs.com" target="_blank">Vuetify</a>
             and <a class="white--text" href="https://github.com/vwxyzjn" target="_blank">Costa Huang</a>
           </div>
@@ -74,25 +74,6 @@
     </v-footer>
   </v-app>
 
-  <!--<v-app>-->
-  <!--&lt;!&ndash;工具栏&ndash;&gt;-->
-  <!--<v-toolbar app>-->
-  <!--<v-toolbar-title>VuetifyJS</v-toolbar-title>-->
-  <!--</v-toolbar>-->
-  <!--<v-navigation-drawer app></v-navigation-drawer>-->
-
-  <!--<v-content>-->
-  <!--<v-container fluid>-->
-  <!--&lt;!&ndash; route outlet &ndash;&gt;-->
-  <!--&lt;!&ndash; component matched by the route will render here &ndash;&gt;-->
-  <!--<router-view></router-view>-->
-  <!--</v-container>-->
-  <!--</v-content>-->
-
-  <!--<v-footer>-->
-  <!--<footer-component></footer-component>-->
-  <!--</v-footer>-->
-  <!--</v-app>-->
 </template>
 
 <script>
