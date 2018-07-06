@@ -1,12 +1,14 @@
 <template>
-  <div v-if="isShow">
-    <input class="inputValue" v-on:input="firstParamChange" v-model.number="firstParam" type="number"
-           placeholder="value1"/>
-    <span>+</span>
-    <input class="inputValue" v-on:input="secondParamChange" v-model.number="secondParam" type="number"
-           placeholder="value2"/>
-    <input type="button" v-on:click="doCalculate" value="计算"/>
-  </div>
+  <transition name="fade">
+    <div v-if="isShow">
+      <input class="inputValue" v-on:input="firstParamChange" v-model.number="firstParam" type="number"
+             placeholder="value1"/>
+      <span>+</span>
+      <input class="inputValue" v-on:input="secondParamChange" v-model.number="secondParam" type="number"
+             placeholder="value2"/>
+      <input type="button" v-on:click="doCalculate" value="计算"/>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -56,5 +58,12 @@
   .inputValue {
     width: 60px;
   }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
 
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+  {
+    opacity: 0;
+  }
 </style>

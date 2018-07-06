@@ -1,16 +1,18 @@
 <template>
-  <div v-if="isShow" class="modal">
-    <!-- 标题加正文 -->
-    <div>
-      <h3 class="title">{{title}}</h3>
-      <p>{{content}}</p>
-    </div>
+  <transition name="fade">
+    <div v-if="isShow" class="modal">
+      <!-- 标题加正文 -->
+      <div>
+        <h3 class="title">{{title}}</h3>
+        <p>{{content}}</p>
+      </div>
 
-    <!--按钮操作-->
-    <div style="text-align: center;">
-      <input type="button" v-on:click="onClickCloseBtn($event)" value="关闭"/>
+      <!--按钮操作-->
+      <div style="text-align: center;">
+        <input type="button" v-on:click="onClickCloseBtn($event)" value="关闭"/>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -41,7 +43,7 @@
 </script>
 
 <style scoped>
-  .modal{
+  .modal {
     width: 100%;
   }
 
@@ -49,5 +51,14 @@
     text-align: center;
     background-color: #484848;
     color: #fff;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+  {
+    opacity: 0;
   }
 </style>

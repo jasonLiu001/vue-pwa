@@ -33,6 +33,7 @@
                        v-bind:content="modal1.content"></modal-component>
       <modal-component ref="modalComponent2" v-bind:title="modal2.title"
                        v-bind:content="modal2.content"></modal-component>
+
     </div>
   </div>
 </template>
@@ -41,28 +42,25 @@
   import CalculateComponent from '../components/home/Calculate'
   import ModalComponent from '../components/Modal'
 
+  function InputData() {
+    this.firstParam = '?'
+    this.secondParam = '?'
+    this.total = '?'
+  }
+
+  function ModalData() {
+    this.title = '标题'
+    this.content = '正文'
+  }
+
   export default {
     name: "homePage",
     data: function () {
       return {
-        inputA: {
-          firstParam: '?',
-          secondParam: '?',
-          total: '?'
-        },
-        inputB: {
-          firstParam: '?',
-          secondParam: '?',
-          total: '?'
-        },
-        modal1: {
-          title: '测试',
-          content: '成功'
-        },
-        modal2: {
-          title: '测试',
-          content: '成功'
-        }
+        inputA: new InputData(),
+        inputB: new InputData(),
+        modal1: new ModalData(),
+        modal2: new ModalData()
       }
     },
     components: {
@@ -129,5 +127,6 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
 
 </style>
