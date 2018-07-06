@@ -33,14 +33,19 @@
                        v-bind:content="modal1.content"></modal-component>
       <modal-component ref="modalComponent2" v-bind:title="modal2.title"
                        v-bind:content="modal2.content"></modal-component>
-
     </div>
+
+    <div class="row">
+      <alert-component name="alert" content="ok"></alert-component>
+    </div>
+
   </div>
 </template>
 
 <script>
   import CalculateComponent from '../components/Calculate'
   import ModalComponent from '../components/Modal'
+  import AlertComponent from '../components/Alert'
 
   function InputData() {
     this.firstParam = '?'
@@ -64,7 +69,7 @@
       }
     },
     components: {
-      CalculateComponent, ModalComponent
+      CalculateComponent, ModalComponent, AlertComponent
     },
     methods: {
       onAddInputACalculating(data) {
