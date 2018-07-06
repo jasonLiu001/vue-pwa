@@ -13,7 +13,7 @@
     },
     data: function () {
       return {
-        list: [1, 2, 3, 4, 5]
+        list: ['Hello', '我是函数化组件']
       }
     },
     render: function (createElement) {
