@@ -39,7 +39,7 @@
 </template>
 
 <script>
-  import CalculateComponent from '../components/home/Calculate'
+  import CalculateComponent from '../components/Calculate'
   import ModalComponent from '../components/Modal'
 
   function InputData() {
