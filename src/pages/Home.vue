@@ -24,11 +24,22 @@
       <a href="javascript:void(0);" v-on:click="redirectToAbout">跳转到关于页面</a>
     </div>
 
+    <div class="row">
+      <div>
+        <button v-on:click="showModal1('对话框1','对话框1')">显示对话框1</button>
+        <button v-on:click="showModal2('对话框2','对话框2')">显示对话框2</button>
+      </div>
+      <modal-component ref="modalComponent1" v-bind:title="modal1.title"
+                       v-bind:content="modal1.content"></modal-component>
+      <modal-component ref="modalComponent2" v-bind:title="modal2.title"
+                       v-bind:content="modal2.content"></modal-component>
+    </div>
   </div>
 </template>
 
 <script>
   import CalculateComponent from '../components/home/Calculate'
+  import ModalComponent from '../components/Modal'
 
   export default {
     name: "homePage",
@@ -43,11 +54,19 @@
           firstParam: '?',
           secondParam: '?',
           total: '?'
+        },
+        modal1: {
+          title: '测试',
+          content: '成功'
+        },
+        modal2: {
+          title: '测试',
+          content: '成功'
         }
       }
     },
     components: {
-      CalculateComponent
+      CalculateComponent, ModalComponent
     },
     methods: {
       onAddInputACalculating(data) {
@@ -59,15 +78,25 @@
       showInputGroup(name) {
         switch (name) {
           case 'addInput1':
-            this.$refs.addInput1.isShow = true
+            this.$refs.addInput1.show()
             break
           case 'addInput2':
-            this.$refs.addInput2.isShow = true
+            this.$refs.addInput2.show()
             break
         }
       },
       redirectToAbout() {
         this.$router.push('About')
+      },
+      showModal1(title, conent) {
+        this.modal1.title = title
+        this.modal1.content = conent
+        this.$refs.modalComponent1.show()
+      },
+      showModal2(title, conent) {
+        this.modal2.title = title
+        this.modal2.content = conent
+        this.$refs.modalComponent2.show()
       }
     }
   }

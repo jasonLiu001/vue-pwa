@@ -23,10 +23,20 @@
       }
     },
     methods: {
+      show() {
+        this.isShow = true
+      },
+      hide() {
+        this.isShow = false
+      },
       doCalculate(evt) {
         let totalResult = this.firstParam + this.secondParam
         // 触发计算事件
-        this.$emit(this.events.onCalculating, {firstParam: this.firstParam, secondParam: this.secondParam, total: totalResult})
+        this.$emit(this.events.onCalculating, {
+          firstParam: this.firstParam,
+          secondParam: this.secondParam,
+          total: totalResult
+        })
         // 计算完成后，隐藏自身
         this.isShow = false
       },
