@@ -3,21 +3,21 @@
     <div class="row">
       <div class="inner_row">
         <div>
-          <span>{{addInputAFirst}}</span>+<span>{{addInputASecond}}</span>=<span>{{addInputATotal}}</span>
+          <span>{{inputA.firstParam}}</span>+<span>{{inputA.secondParam}}</span>=<span>{{inputA.total}}</span>
         </div>
         <input class="btnInput" type="button" v-on:click="showInputGroup('addInput1')" value="输入"></input>
       </div>
-      <calculate-component name="addInput1" ref="addInput1"></calculate-component>
+      <calculate-component v-on:onCalculating="onAddInputACalculating" ref="addInput1"></calculate-component>
     </div>
 
     <div class="row">
       <div class="inner_row">
         <div>
-          <span>{{addInputBFirst}}</span>+<span>{{addInputBSecond}}</span>=<span>{{addInputBTotal}}</span>
+          <span>{{inputB.firstParam}}</span>+<span>{{inputB.secondParam}}</span>=<span>{{inputB.total}}</span>
         </div>
         <input class="btnInput" v-on:click="showInputGroup('addInput2')" type="button" value="输入"></input>
       </div>
-      <calculate-component name="addInput2" ref="addInput2"></calculate-component>
+      <calculate-component v-on:onCalculating="onAddInputBCalculating" ref="addInput2"></calculate-component>
     </div>
 
     <div class="row">
@@ -29,34 +29,33 @@
 
 <script>
   import CalculateComponent from '../components/home/Calculate'
-  import {mapState} from 'vuex'
 
   export default {
     name: "homePage",
+    data: function () {
+      return {
+        inputA: {
+          firstParam: '?',
+          secondParam: '?',
+          total: '?'
+        },
+        inputB: {
+          firstParam: '?',
+          secondParam: '?',
+          total: '?'
+        }
+      }
+    },
     components: {
       CalculateComponent
     },
-    computed: mapState({
-      addInputAFirst(state) {
-        return state.a.firstParam
-      },
-      addInputASecond(state) {
-        return state.a.secondParam
-      },
-      addInputATotal(state) {
-        return state.a.total
-      },
-      addInputBFirst(state) {
-        return state.b.firstParam
-      },
-      addInputBSecond(state) {
-        return state.b.secondParam
-      },
-      addInputBTotal(state) {
-        return state.b.total
-      }
-    }),
     methods: {
+      onAddInputACalculating(data) {
+        this.inputA = data
+      },
+      onAddInputBCalculating(data) {
+        this.inputB = data
+      },
       showInputGroup(name) {
         switch (name) {
           case 'addInput1':
