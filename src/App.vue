@@ -1,19 +1,23 @@
 <template>
   <div>
-    <!--公共头部-->
-    <header>
-      <HeaderComponent></HeaderComponent>
-    </header>
+    <v-app>
+      <!--工具栏-->
+      <v-toolbar app>
+        <v-toolbar-title>VuetifyJS</v-toolbar-title>
+      </v-toolbar>
 
-    <!--页面主体-->
-    <main>
-      <router-view></router-view>
-    </main>
+      <v-navigation-drawer app></v-navigation-drawer>
 
-    <!--公共底部-->
-    <footer>
-      <footer-component></footer-component>
-    </footer>
+      <v-content>
+        <v-container fluid>
+          <router-view></router-view>
+        </v-container>
+      </v-content>
+
+      <v-footer>
+        <footer-component></footer-component>
+      </v-footer>
+    </v-app>
   </div>
 </template>
 
