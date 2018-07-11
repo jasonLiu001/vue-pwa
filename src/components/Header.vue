@@ -1,5 +1,9 @@
 <template>
-  <v-toolbar app></v-toolbar>
+  <v-toolbar app>
+    <v-btn flat>
+      <v-icon>menu</v-icon>
+    </v-btn>
+  </v-toolbar>
 </template>
 
 <script>
