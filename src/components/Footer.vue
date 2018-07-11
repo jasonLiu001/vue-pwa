@@ -1,5 +1,5 @@
 <template>
-  <h3>底部说明</h3>
+  <v-footer></v-footer>
 </template>
 
 <script>

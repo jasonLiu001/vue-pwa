@@ -1,42 +1,33 @@
 <template>
   <v-app>
-    <v-navigation-drawer app miniVariant v-on:resize="navigatorMini">
-      <v-list>
-        <v-avatar size="125px">
-          <img
-            class="img-circle elevation-7 mb-1"
-            src="https://raw.githubusercontent.com/vuetifyjs/docs/dev/static/doc-images/lists/1.jpg"
-          >
-        </v-avatar>
-        <v-divider></v-divider>
-      </v-list>
-    </v-navigation-drawer>
-    <v-toolbar app></v-toolbar>
+    <!--侧导航-->
+    <nav-bar-component></nav-bar-component>
 
+    <!--头部-->
+    <header-component></header-component>
+
+    <!--正文-->
     <v-content>
       <v-container fluid>
         <router-view></router-view>
       </v-container>
     </v-content>
 
-    <v-footer></v-footer>
+    <!--页底-->
+    <footer-component></footer-component>
   </v-app>
 </template>
 
 <script>
   import HeaderComponent from './components/Header'
   import FooterComponent from './components/Footer'
+  import NavBarComponent from './components/NavBar'
 
   export default {
-    name: "app",
     components: {
-      HeaderComponent, FooterComponent
+      HeaderComponent, FooterComponent, NavBarComponent
     },
-    methods: {
-      navigatorMini(result) {
-        console.log(result)
-      }
-    },
+    name: "app",
     data() {
       return {
         title: 'Your Logo',

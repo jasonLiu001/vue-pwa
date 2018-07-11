@@ -1,10 +1,10 @@
 <template>
-  <v-toolbar app></v-toolbar>
+  <v-navigation-drawer app></v-navigation-drawer>
 </template>
 
 <script>
   export default {
-    name: "headerComponent"
+    name: "navBarComponent"
   }
 </script>
 
