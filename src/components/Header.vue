@@ -1,6 +1,6 @@
 <template>
-  <v-toolbar app>
-    <v-btn flat>
+  <v-toolbar v-bind:value="value" app>
+    <v-btn flat v-on:click="showDrawer">
       <v-icon>menu</v-icon>
     </v-btn>
   </v-toolbar>
@@ -8,7 +8,17 @@
 
 <script>
   export default {
-    name: "headerComponent"
+    name: "headerComponent",
+    props: {
+      value: {
+        required: false
+      }
+    },
+    methods: {
+      showDrawer() {
+        this.$emit('showDrawer', this.value)
+      }
+    }
   }
 </script>
 

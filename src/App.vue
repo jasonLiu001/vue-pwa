@@ -4,7 +4,7 @@
     <nav-bar-component v-model="drawer"></nav-bar-component>
 
     <!--头部-->
-    <header-component v-on:click.native="showDrawer"></header-component>
+    <header-component v-model="drawer" v-on:showDrawer="showDrawer"></header-component>
 
     <!--正文-->
     <v-content>
@@ -27,12 +27,12 @@
     components: {
       HeaderComponent, FooterComponent, NavBarComponent
     },
+    name: "app",
     methods: {
-      showDrawer() {
-        this.drawer = !this.drawer
+      showDrawer(val) {
+        this.drawer = !val
       }
     },
-    name: "app",
     data() {
       return {
         drawer: false,
