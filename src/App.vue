@@ -1,10 +1,10 @@
 <template>
   <v-app>
     <!--侧导航-->
-    <nav-bar-component></nav-bar-component>
+    <nav-bar-component v-model="drawer"></nav-bar-component>
 
     <!--头部-->
-    <header-component></header-component>
+    <header-component v-on:click.native="showDrawer"></header-component>
 
     <!--正文-->
     <v-content>
@@ -27,9 +27,15 @@
     components: {
       HeaderComponent, FooterComponent, NavBarComponent
     },
+    methods: {
+      showDrawer() {
+        this.drawer = !this.drawer
+      }
+    },
     name: "app",
     data() {
       return {
+        drawer: false,
         title: 'Your Logo',
         posts: [
           {
