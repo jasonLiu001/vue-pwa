@@ -16,7 +16,7 @@
     },
     methods: {
       showDrawer() {
-        this.$emit('showDrawer', this.value)
+        this.$emit('showDrawer', !this.value)
       }
     }
   }

@@ -30,7 +30,7 @@
     name: "app",
     methods: {
       showDrawer(val) {
-        this.drawer = !val
+        this.drawer = val
       }
     },
     data() {
